@@ -1,0 +1,17 @@
+Description: Fix path in documentation generation
+Author: Anton Gladky <gladk@debian.org>
+Last-Update: 2015-06-16
+
+Index: gnuplot-5.0.3/docs/Makefile.am
+===================================================================
+--- gnuplot-5.0.3.orig/docs/Makefile.am
++++ gnuplot-5.0.3/docs/Makefile.am
+@@ -345,7 +345,7 @@ ${ELCS}: gnuplot-eldoc.el
+ 	fi
+ 
+ gnuplot.info: gnuplot.texi
+-	$(AM_V_GEN) $(MAKEINFO) -I$(srcdir) $< --no-split --output=$@
++	$(AM_V_GEN) $(MAKEINFO) -I$(srcdir) $< --no-split  --force --output=$@
+ 
+ install-info: gnuplot.info
+ 	$(AM_V_at) $(top_srcdir)/mkinstalldirs $(DESTDIR)$(infodir)

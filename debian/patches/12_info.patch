@@ -1,0 +1,88 @@
+Description: generate info-file
+Author: Vincent Lefevre <vincent@vinc17.net>
+Reviewed-By: Anton Gladky <gladk@debian.org>
+Bug-Debian: http://bugs.debian.org/778757
+Last-Update: 2015-06-29
+
+Index: gnuplot-5.0.3/docs/Makefile.am
+===================================================================
+--- gnuplot-5.0.3.orig/docs/Makefile.am
++++ gnuplot-5.0.3/docs/Makefile.am
+@@ -90,7 +90,7 @@ gpcard.log pdffigures.tex pdffigures.aux
+ 
+ CLEANFILES = allterm.h gnuplot.dvi figures.tex nofigures.tex		\
+ gnuplot.tex gnuplot.idx gnuplot.ilg gnuplot.ps gpcard.dvi gpcard.ps	\
+-gnuplot.gih gnuplot.hlp gnuplot.info* gnuplot.ipf gnuplot.ms		\
++gnuplot.gih gnuplot.hlp gnuplot5.info* gnuplot.ipf gnuplot.ms		\
+ gnuplot.rnh gnuplot.rtf gnuplot.nroff gnuplot.txt gnuplot-groff.dvi	\
+ gnuplot-groff.ps gnuplot.tmp VERSION gnuplot.4tc gnuplot.4ct		\
+ gnuplot.idv gnuplot.xref gnuplot.lg gnuplot.pdf wxhelp_figures		\
+@@ -323,7 +323,7 @@ wxhelp_figures: $(GNUPLOT_EXE) $(srcdir)
+ 	$(AM_V_GEN)touch $@
+ 
+ ### GNU info format
+-info: gnuplot.info
++info: gnuplot5.info
+ 
+ # Thanks to Bruce Ravel for doc2texi.el!
+ gnuplot.texi gnuplot-eldoc.el: $(srcdir)/doc2texi.el $(srcdir)/gnuplot.doc
+@@ -343,15 +343,15 @@ ${ELCS}: gnuplot-eldoc.el
+ 	   echo "No emacs found - cannot create gnuplot-eldoc.elc file" ; \
+ 	fi
+ 
+-gnuplot.info: gnuplot.texi
++gnuplot5.info: gnuplot.texi
+ 	$(AM_V_GEN) $(MAKEINFO) -I$(srcdir) $< --no-split  --force --output=$@
+ 
+-install-info: gnuplot.info
++install-info: gnuplot5.info
+ 	$(AM_V_at) $(top_srcdir)/mkinstalldirs $(DESTDIR)$(infodir)
+-	$(AM_V_at) $(INSTALL_DATA) gnuplot.info $(DESTDIR)$(infodir)/gnuplot.info
++	$(AM_V_at) $(INSTALL_DATA) gnuplot5.info $(DESTDIR)$(infodir)/gnuplot5.info
+ 	$(AM_V_at) if (install-info --version && \
+ 	     install-info --version | fgrep -i -v debian) >/dev/null 2>&1; then \
+-	  install-info --info-dir=$(DESTDIR)$(infodir) $(DESTDIR)$(infodir)/gnuplot.info || : ;\
++	  install-info --info-dir=$(DESTDIR)$(infodir) $(DESTDIR)$(infodir)/gnuplot5.info || : ;\
+ 	else : ; fi
+ 
+ # this is how to make OS/2 ipfc documentation
+Index: gnuplot-5.0.3/docs/doc2texi.el
+===================================================================
+--- gnuplot-5.0.3.orig/docs/doc2texi.el
++++ gnuplot-5.0.3/docs/doc2texi.el
+@@ -79,7 +79,7 @@
+ ;;
+ ;; Then you can do
+ ;;
+-;;      makeinfo gnuplot.info
++;;      makeinfo gnuplot5.info
+ ;;
+ ;; You may want to use the --no-split option.
+ ;;
+@@ -155,7 +155,7 @@ If PATTERN is omitted, it defaults to \"
+   "\\input texinfo   @c -*-texinfo-*-
+ 
+ @c %**start of header
+-@setfilename gnuplot.info
++@setfilename gnuplot5.info
+ @settitle Gnuplot: An Interactive Plotting Program
+ @setchapternewpage odd
+ @c %**end of header
+@@ -167,7 +167,7 @@ If PATTERN is omitted, it defaults to \"
+ 
+ @dircategory Math
+ @direntry
+-* GNUPLOT: (gnuplot).             An Interactive Plotting Program
++* GNUPLOT5: (gnuplot5).           An Interactive Plotting Program
+ @end direntry
+ 
+ @ifnottex
+@@ -460,7 +460,7 @@ particular conversion chore."
+     ("sun" "sun")
+     ("vms" "vws"))
+ 
+-  "Additional terminals to add to the converted gnuplot.info file.
++  "Additional terminals to add to the converted gnuplot5.info file.
+ 
+ The CARs of the items are strings to match against
+ `system-configuration', and the CDRs are the elements to add to

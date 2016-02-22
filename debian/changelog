@@ -1,0 +1,122 @@
+gnuplot5 (5.0.3+dfsg2-1) unstable; urgency=medium
+
+  * [e835fa1] Update d/watch.
+  * [f9c5d19] Imported Upstream version 5.0.3+dfsg2
+  * [29a7ef2] Remove patch, applied by upstrem.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 22 Feb 2016 18:59:57 +0100
+
+gnuplot5 (5.0.3+dfsg1-2) unstable; urgency=medium
+
+  * [5b904ca] Revert previous "provides-option". (Closes: #814415)
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 12 Feb 2016 20:25:36 +0100
+
+gnuplot5 (5.0.3+dfsg1-1) unstable; urgency=medium
+
+  * [4b3a3ce] Imported Upstream version 5.0.3+dfsg1
+  * [8767584] Update patches.
+  * [1bcf48b] Fix format not a string error.
+  * [0e4ff3f] Apply cme fix dpkg.
+  * [6a42bd9] Add Provides-section for gnuplot4. Prepare for gnuplot4 removal.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 08 Feb 2016 13:30:56 +0100
+
+gnuplot5 (5.0.2+dfsg1-2) unstable; urgency=medium
+
+  * [7bb549d] Fix font size on wxt-terminal. (Closes: #810943)
+  * [5a638de] Update d/copyright.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 18 Jan 2016 09:08:36 +0100
+
+gnuplot5 (5.0.2+dfsg1-1) unstable; urgency=medium
+
+  * [d183a84] Remove so-files from d/copyright (fixed by upstream)
+  * [9a496d5] Imported Upstream version 5.0.2+dfsg1. (Closes: #806039)
+  * [5be40e0] Refresh patches.
+  * [65d724b] Update d/copyright.
+  * [09f724d] Add dh-lua to BD.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 12 Jan 2016 08:11:01 +0100
+
+gnuplot5 (5.0.1+dfsg1-3) unstable; urgency=medium
+
+  [ Martin Pitt <martin.pitt@ubuntu.com> ]
+  * Add 13_no_pie.patch: Don't build with -fPIE, Qt barfs on that with
+    gcc >= 5. (http://code.qt.io/cgit/qt/qtbase.git/commit/?id=3eca75d)
+    (Closes: #795076)
+  * debian/rules: Also drop "pie" from hardening flags. Instead, build with
+    -fPIC; it's conceptually wrong, but it's what the above Qt check insists
+    on.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 11 Aug 2015 22:07:13 +0200
+
+gnuplot5 (5.0.1+dfsg1-2) unstable; urgency=medium
+
+  [ Vincent Lefevre ]
+  * Team upload.
+  * [1171a98] Provide info manual. (Closes: #778757)
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 29 Jun 2015 23:36:42 +0200
+
+gnuplot5 (5.0.1+dfsg1-1) unstable; urgency=medium
+
+  * [c0fd77e] Imported Upstream version 5.0.1+dfsg
+  * [be6c05e] Add suffix to uscan tarball.
+  * [47f23a2] Refresh patches.
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 17 Jun 2015 17:54:45 +0200
+
+gnuplot5 (5.0.0+dfsg1-1) unstable; urgency=medium
+
+  * [6654139] Update description of doc.patch.
+  * [d62554c] Remove docs/gnuplot.doc from Files-Excluded.
+  * [0bde847] Update watch-file.
+  * [094380f] Update d/copyright.
+  * [03fde84] Use cme fix dpkg-control.
+  * [5b554ce] Fix package build with -A option.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 28 Apr 2015 21:38:18 +0200
+
+gnuplot5 (5.0.0+dfsg1-1~exp1) experimental; urgency=medium
+
+  * [852f781] Imported Upstream version 5.0.0+dfsg1
+  * [ebf57b8] Remove doc-patch.
+  * [a4d5d14] Update d/watch.
+  * [6b6db31] Update d/copyright.
+  * [7907a7a] Update doc-generation.
+  * [e56cfca] Enable wxt-terminal.
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 22 Jan 2015 23:15:42 +0100
+
+gnuplot5 (5.0.0~rc+dfsg3-1) experimental; urgency=medium
+
+  [ Anton Gladky ]
+  * [3071bf2] Imported Upstream version 5.0~rc3
+  * [d89f2c1] Set Standards-Version: 3.9.6. No changes.
+
+  [ Mattia Rizzolo ]
+  * [8770897] Do not build-depend on qt5-default. (Closes: #769235)
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 18 Nov 2014 19:18:52 +0100
+
+gnuplot5 (5.0.0~rc+dfsg2-1) unstable; urgency=medium
+
+  * [6c51a9d] Update copyright-file.
+  * [796b51a] Replace binary by Source-version in d/control.
+  * [5e8c834] Remove README.Debian and TODO.
+  * [5e486cc] Update debian/watch.
+  * [947cf8e] Add Files-Excluded into d/copyright.
+  * [f90ab32] Imported Upstream version 5.0.0~rc2+dfsg. (Closes: #763504)
+  * [163b2af] Remove beos-specific code.
+  * [52c53de] Remove gnuplot.doc from source and binary.
+  * [0bc7e41] Refresh patches.
+  * [f69cc4e] Simplify autopkgtest.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 29 Sep 2014 22:49:44 +0200
+
+gnuplot5 (5.0.0~rc+dfsg-1) unstable; urgency=medium
+
+  * Initial packaging. (Closes: #754506)
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 11 Jul 2014 23:36:40 +0200
